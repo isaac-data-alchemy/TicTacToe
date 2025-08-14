@@ -1,6 +1,7 @@
 from tictactoe.player import Player, AIPLayer
 from tictactoe.board import Board
 from tictactoe.symbols import Display
+from tictactoe.leaderboards import LeaderBoard
 
 
 class Game:
@@ -13,6 +14,8 @@ class Game:
         self.player1 = player1
         self.player2 = player2
         self.current_player: Player = self.player1
+
+        self.leaderboards = LeaderBoard(self.player1, self.player2)
         self.draws = 0 
         
     def switch_player(self):
@@ -39,9 +42,12 @@ class Game:
             if self.board.is_winner(self.current_player.symbol):
                 print(f"🏆 {self.current_player.name} wins!")
                 self.current_player.score +=1
+                self.leaderboards.register_win(self.current_player.symbol)
                 self.switch_player()
                 return "win"
             elif self.board.is_full():
+                # in truth we really on need one of the player draws to be incremented
+                self.leaderboards.draws +=1
                 self.player1.draws +=1
                 self.player2.draws +=1
                 self.switch_player()
