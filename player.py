@@ -8,8 +8,6 @@ class Player:
     def __init__(self, name: str, symbol: str):
         self.name = name
         self.symbol = symbol
-        self.score: int = 0
-        self.draws: int = 0
 
 class AIPLayer(Player):
     DELAY = 3

@@ -16,7 +16,6 @@ class Game:
         self.current_player: Player = self.player1
 
         self.leaderboards = LeaderBoard(self.player1, self.player2)
-        self.draws = 0 
         
     def switch_player(self):
         self.current_player = self.player1 if self.current_player == self.player2 else self.player2
@@ -41,15 +40,11 @@ class Game:
             self.board.display()
             if self.board.is_winner(self.current_player.symbol):
                 print(f"🏆 {self.current_player.name} wins!")
-                self.current_player.score +=1
                 self.leaderboards.register_win(self.current_player.symbol)
                 self.switch_player()
                 return "win"
             elif self.board.is_full():
-                # in truth we really on need one of the player draws to be incremented
                 self.leaderboards.draws +=1
-                self.player1.draws +=1
-                self.player2.draws +=1
                 self.switch_player()
                 print("🤝 It's a draw!")
                 return "draw"            
