@@ -36,9 +36,6 @@ class Session:
         # previous code
         self.game =  Game(self.player1, self.player2) 
         while True:
-            # commented out code is the previouly working logic
-            # game = Game(self.player1, self.player2)
-            # result = game.play()
             result = self.game.play()
             self.display_scores()
             choice = input("Play again? (y = rematch, r = restart, q = quit): ").lower()
@@ -60,7 +57,7 @@ class Session:
     def display_scores(self) -> None:
         """Display game scores in a clean, formatted layout."""
         print("\n" + "="*50)
-        print("🏅 GAME LEADERBOARD")
+        print("🏅LEADERBOARDS")
         print("="*50)
     
     # Player 1 
