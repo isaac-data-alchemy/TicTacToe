@@ -19,18 +19,10 @@ class LeaderBoard:
         self.p1_loss = 0
         self.p2_loss = 0
         self.draws = 0
-    
-    def __str__(self):
-        return f"{self.p1.symbol}:{self.p1_wins} {self.p2.symbol}: {self.p2_wins}"
-    
-    # @property
-    # def draws(self):
-    #     return self.draws
-    
-    # @draws.setter
-    # def draws(self, val):
-    #     return self.draws 
 
+    @property
+    def total(self) -> int:
+        return self.p1_wins + self.p2_wins + self.draws
     
     def register_win(self, symbol: str):
         if symbol == "X":
