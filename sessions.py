@@ -33,12 +33,19 @@ class Session:
         self.run()
     
     def run(self) -> None:
+        # previous code
         self.game =  Game(self.player1, self.player2) 
         while True:
+            # commented out code is the previouly working logic
+            # game = Game(self.player1, self.player2)
+            # result = game.play()
             result = self.game.play()
             self.display_scores()
             choice = input("Play again? (y = rematch, r = restart, q = quit): ").lower()
             if choice == 'y':
+                leaderboard = self.game.leaderboards
+                self.game = Game(self.player1, self.player2)
+                self.game.leaderboards = leaderboard
                 continue
             elif choice == 'r':
                 print("🔁 Restarting session and clearing scores...\n")
@@ -56,7 +63,7 @@ class Session:
         print("🏅 GAME LEADERBOARD")
         print("="*50)
     
-    # Player 1 stats
+    # Player 1 
         print(f"👤 {self.game.leaderboards.p1:<20} Wins: {self.game.leaderboards.p1_wins:>3} | Losses: {self.game.leaderboards.p1_loss:>3}")
     
     # Player 2 stats  
@@ -68,7 +75,7 @@ class Session:
         print("="*50)
     
     # Calculate total games
-        total_games = self.game.leaderboards.p1_wins + self.game.leaderboards.p2_wins + self.game.leaderboards.draws
+        total_games = self.game.leaderboards.total
         print(f"📊 Total Games Played: {total_games}")
         print("="*50 + "\n")
 
