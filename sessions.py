@@ -33,7 +33,6 @@ class Session:
         self.run()
     
     def run(self) -> None:
-        # previous code
         self.game =  Game(self.player1, self.player2) 
         while True:
             result = self.game.play()
