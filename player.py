@@ -33,11 +33,11 @@ class AIPLayer(Player):
     def best_move(self, board: Board) -> Tuple[int, int]:
         _, move = self.minimax(board, self.symbol, True)
         time.sleep(self.DELAY)
+        print("move score: ", _)
         return move
 
     def minimax(self, board: Board, player_symbol: str, is_maximizing: bool) -> Tuple[float, Tuple[int, int]]:
         opponent_symbol = "X" if self.symbol == "O" else "O"
-        winner = None
         if board.is_winner(self.symbol):
             return 1, (-1,-1)
         elif board.is_winner(opponent_symbol):

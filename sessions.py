@@ -36,7 +36,7 @@ class Session:
     def run(self) -> None:
         while True:
             game = Game(self.player1, self.player2)
-            result = game.play()
+            game.play()
             self.display_scores()
             choice = input("Play again? (y = rematch, r = restart, q = quit): ").lower()
             if choice == 'y':
