@@ -5,10 +5,10 @@ from tictactoe.symbols import Symbols
 
 class Session:
     def __init__(self):
-        self._symbol = Symbols()
         self.start()
     
     def start(self) -> None:
+        self._symbol = Symbols()
         print("\n🎮 Starting New Tic Tac Toe Session")
         mode = input("Choose mode: \n1 = Human vs Human, \n2 = Human vs AI, \n3 = AI vs AI: \n").strip()
 
@@ -43,7 +43,7 @@ class Session:
                 continue
             elif choice == 'r':
                 print("🔁 Restarting session and clearing scores...\n")
-                self.__init__()
+                self.start()
                 break
             elif choice == 'q':
                 print("👋 Thanks for playing!")
