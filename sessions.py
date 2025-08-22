@@ -1,3 +1,5 @@
+import os
+
 from tictactoe.player import Player, AIPLayer
 from tictactoe.game import Game
 from tictactoe.symbols import Symbols
@@ -67,9 +69,11 @@ class Session:
                 leaderboard = self.game.leaderboards
                 self.game = Game(self.player1, self.player2)
                 self.game.leaderboards = leaderboard
+                self.clear_screen()
                 continue
             elif choice == "r":
                 print("🔁 Restarting session and clearing scores...\n")
+                self.clear_screen()
                 self.start()
                 break
             elif choice == "q":
@@ -77,10 +81,14 @@ class Session:
                 break
             else:
                 print("Invalid option. Rematching the game")
+                self.clear_screen()
                 leaderboard = self.game.leaderboards
                 self.game = Game(self.player1, self.player2)
                 self.game.leaderboards = leaderboard
                 continue
+    
+    def clear_screen(self):
+        os.system("cls" if os.name == "nt" else "clear")
 
     def display_scores(self) -> None:
         """Display game scores in a clean, formatted layout."""
