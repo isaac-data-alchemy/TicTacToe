@@ -14,6 +14,8 @@ class Board:
         self.grid: List[List[str]] = [[' ' for _ in range(self.size)] for _ in range(self.size)]
         self.display_style = display_style
         
+        # I was supposed to refactor this to continue using the objects 
+        # i created but I got a bit lazy  ( this happened when i was trying to improve display() method)
         if self.display_style == "emoji":
             self.symbols = {'X': '❌', 'O': '⭕', ' ': ' '}
         else:
@@ -25,7 +27,8 @@ class Board:
 
     def _get_formatted_cell(self, cell_value: str) -> str:
         """
-        Creates a perfectly centered cell string.
+        Creates a perfectly centered cell string., not it does not infact create a perfectly centered cell string
+        it does do it consistently though
         """
         symbol = self.symbols[cell_value]
         symbol_width = wcwidth(symbol)
@@ -50,7 +53,7 @@ class Board:
 
     def display(self) -> None:
         """
-        Displays the board.
+        Displays the board very very imperfectly I tried and then i gave up....
         """
         # THIS SEPARATOR MUST use the same shared width variable
         horizontal_sep = f"+{'-' * self.TARGET_CELL_WIDTH}+" * self.size

@@ -39,6 +39,7 @@ class Session:
             self.display_scores()
             choice = input("Play again? (y = rematch, r = restart, q = quit): ").lower()
             if choice == 'y':
+                # This is a phony way of persisting the leaderboard data whenever you rematch the game.
                 leaderboard = self.game.leaderboards
                 self.game = Game(self.player1, self.player2)
                 self.game.leaderboards = leaderboard
@@ -51,8 +52,11 @@ class Session:
                 print("👋 Thanks for playing!")
                 break
             else:
-                print("Invalid option. Exiting")
-                break
+                print("Invalid option. Rematching the game")
+                leaderboard = self.game.leaderboards
+                self.game = Game(self.player1, self.player2)
+                self.game.leaderboards = leaderboard
+                continue
     
     def display_scores(self) -> None:
         """Display game scores in a clean, formatted layout."""
