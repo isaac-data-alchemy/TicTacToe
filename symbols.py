@@ -12,10 +12,11 @@ class SymbolDisplay:
     X: str
     O: str
 
+
 class Symbols:
     EMOJI = SymbolDisplay(X="❌", O="⭕")
     TEXT = SymbolDisplay(X="X", O="O")
-                        
+
 
 @dataclass(frozen=True)
 class Display:

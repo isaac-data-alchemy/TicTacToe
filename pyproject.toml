@@ -9,3 +9,8 @@ dependencies = [
     "pyinstaller>=6.15.0",
     "wcwidth>=0.2.13",
 ]
+
+[project.optional-dependencies]
+cli = [
+    "ruff>=0.12.10",
+]
