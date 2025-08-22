@@ -39,6 +39,7 @@ class Session:
             self.display_scores()
             choice = input("Play again? (y = rematch, r = restart, q = quit): ").lower()
             if choice == 'y':
+                # This is a phony way of persisting the leaderboard data whenever you rematch the game.
                 leaderboard = self.game.leaderboards
                 self.game = Game(self.player1, self.player2)
                 self.game.leaderboards = leaderboard
@@ -51,8 +52,11 @@ class Session:
                 print("👋 Thanks for playing!")
                 break
             else:
-                print("Invalid option. Exiting")
-                break
+                print("Invalid option. Rematching the game")
+                leaderboard = self.game.leaderboards
+                self.game = Game(self.player1, self.player2)
+                self.game.leaderboards = leaderboard
+                continue
     
     def display_scores(self) -> None:
         """Display game scores in a clean, formatted layout."""
@@ -61,10 +65,10 @@ class Session:
         print("="*50)
     
     # Player 1 
-        print(f"👤 {self.game.leaderboards.p1:<20} Wins: {self.game.leaderboards.p1_wins:>3} | Losses: {self.game.leaderboards.p1_loss:>3}")
+        print(f"👤 {self.game.leaderboards.p1_name:<20}({self.game.leaderboards.p1}) Wins: {self.game.leaderboards.p1_wins:>3} | Losses: {self.game.leaderboards.p1_loss:>3}")
     
     # Player 2 stats  
-        print(f"👤 {self.game.leaderboards.p2:<20} Wins: {self.game.leaderboards.p2_wins:>3} | Losses: {self.game.leaderboards.p2_loss:>3}")
+        print(f"👤 {self.game.leaderboards.p2_name:<20}({self.game.leaderboards.p2}) Wins: {self.game.leaderboards.p2_wins:>3} | Losses: {self.game.leaderboards.p2_loss:>3}")
     
     # Draws
         print(f"🤝 {'Draws':<20} {self.game.leaderboards.draws:>3}")

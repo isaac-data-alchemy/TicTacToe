@@ -7,6 +7,8 @@ class LeaderBoard:
     def __init__(self, player_one: Player, player_two: Union[Player, AIPLayer]):
         self.p1 = player_one.symbol
         self.p2 = player_two.symbol
+        self.p1_name = player_one.name
+        self.p2_name = player_two.name
         self.p1_wins = 0
         self.p2_wins = 0
         self.p1_loss = 0
