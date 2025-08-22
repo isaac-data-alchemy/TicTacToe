@@ -56,8 +56,8 @@ class AIPLayer(Player):
         best_score = float("-inf") if is_maximizing else float("inf")
         best_move = (-1, -1)
 
-        for r in range(3):
-            for c in range(3):
+        for r in range(board.size):
+            for c in range(board.size):
                 if board.is_valid_move(r, c):
                     board.make_move(r, c, player_symbol)
                     score, _ = self.minimax(
