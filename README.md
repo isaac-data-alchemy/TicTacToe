@@ -41,6 +41,10 @@ If the Makefile sits inside tictactoe/, PyInstaller will fail due to package imp
 
 ✅ Correct structure for building:
 
+if you your machine is a windows machine you can simply copy the build code or enter directly without using the Makefile
+
+`pyinstaller --onefile --collect-all tictactoe -n XANDO tictactoe/__main__.py`
+
 project-root/
 │── Makefile
 │── tictactoe/
