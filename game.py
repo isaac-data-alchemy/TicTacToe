@@ -2,6 +2,7 @@ from tictactoe.player import Player, AIPLayer
 from tictactoe.board import Board
 from tictactoe.symbols import Display
 from tictactoe.leaderboards import LeaderBoard
+from .exceptions import InvalidInput
 
 
 class Game:
@@ -36,7 +37,7 @@ class Game:
                 )
                 try:
                     row, col = map(int, move.strip().split(","))
-                except Exception:
+                except InvalidInput:
                     print("Invalid input. Use format row, col (e.g 0,2.)")
                     continue
             if not self.board.is_valid_move(row, col):
