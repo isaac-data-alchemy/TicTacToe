@@ -1,7 +1,7 @@
 """
-if you wanted to run this code as a python module uncommenting these and then you can import them all from . (because the interpreter will initialize them before running __main__)
+if you wanted to run this code as a python module uncomment these and then you can import them all from . (because the interpreter will initialize them before running __main__)
 however to build the source code pyinstaller requires absolute paths so you will find that this __init__ file is not being
-used. you can remove the code from here if you want but once you do you cannot make imports like:
+used. you can remove the code from here if you want but once you do you cannot make imports like the example below.
 
 Example:
 some_module.py/
