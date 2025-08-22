@@ -52,6 +52,7 @@ class Session:
                 break
             else:
                 print("Invalid option. Exiting")
+                break
     
     def display_scores(self) -> None:
         """Display game scores in a clean, formatted layout."""
