@@ -1,3 +1,12 @@
+"""
+PS: This Tictactoe actually implements tictactoe the way I learned to play it in Nigeria
+and you will find these assumptions in the way that code is written.
+
+X is always Player 1 and X is the default.
+O is the default Player 2. 
+This principle is the reason the Leaderboard class because the register_win method is making 
+pretty bold assumptions about who is player 1 and player 2.... 
+"""
 import os
 
 from tictactoe.player import Player, AIPLayer
