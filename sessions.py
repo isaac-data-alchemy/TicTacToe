@@ -4,8 +4,7 @@ and you will find these assumptions in the way that code is written.
 
 X is always Player 1 and X is the default.
 O is the default Player 2. 
-This principle is the reason the Leaderboard class because the register_win method is making 
-pretty bold assumptions about who is player 1 and player 2.... 
+This principle influenced the design of the Leaderboar. The register_win() method is making pretty bold assumptions about who is player 1 and player 2.... 
 """
 import os
 
