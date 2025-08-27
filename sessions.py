@@ -4,7 +4,8 @@ and you will find these assumptions in the way that code is written.
 
 X is always Player 1 and X is the default.
 O is the default Player 2. 
-This principle influenced the design of the Leaderboar. The register_win() method is making pretty bold assumptions about who is player 1 and player 2.... 
+This principle is the reason the Leaderboard class because the register_win method is making 
+pretty bold assumptions about who is player 1 and player 2....
 """
 import os
 
@@ -21,7 +22,7 @@ class Session:
         self._symbol = Symbols()
         print("\n🎮 Starting New Tic Tac Toe Session")
         mode = input(
-            "Choose mode: \n1 = Human vs Human, \n2 = Human vs AI, \n3 = AI vs AI: \n"
+            "Choose mode: \n\n1 : Human vs Human, \n\n2 : Human vs AI, \n\n3 : AI vs AI: \n\n"
         ).strip()
 
         if mode == "1":
@@ -38,15 +39,20 @@ class Session:
                 input(f"Enter name for Player 1 ({self._symbol.TEXT.X}): "),
                 self._symbol.TEXT.X,
             )
-            difficulty = input("Select AI difficulty (easy, medium, hard): ").lower()
+            difficulty = input("Select AI difficulty: 1 (easy), 2 (medium), 3 (hard): ")
+            difficulty = int(difficulty)
             p2 = AIPLayer(
                 input(f"Enter name for Player 2 ({self._symbol.TEXT.O}): "),
                 self._symbol.TEXT.O,
                 difficulty=difficulty,
             )
         elif mode == "3":
-            difficulty1 = input("Select AI difficulty (easy, medium, hard): ").lower()
-            difficulty2 = input("Select AI difficulty (easy, medium, hard): ").lower()
+            difficulty1 = input("Select AI difficulty: 1 (easy), 2 (medium), 3 (hard): ")
+            difficulty2 = input("Select AI difficulty: 1 (easy), 2 (medium), 3 (hard): ")
+            
+            difficulty1 = int(difficulty1)
+
+            difficulty2 = int(difficulty2)
             p1 = AIPLayer(
                 input(f"Enter name for Player 1 ({self._symbol.TEXT.X}): "),
                 self._symbol.TEXT.X,
@@ -60,7 +66,7 @@ class Session:
         else:
             print("Invalid option.  Defaulting to Human vs AI (hard)")
             p1 = Player("You", symbol=self._symbol.TEXT.X)
-            p2 = AIPLayer("Bot", symbol=self._symbol.TEXT.O, difficulty="hard")
+            p2 = AIPLayer("Bot", symbol=self._symbol.TEXT.O, difficulty=3)
 
         self.player1 = p1
         self.player2 = p2

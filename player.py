@@ -14,14 +14,14 @@ class Player:
 class AIPLayer(Player):
     DELAY = 3
 
-    def __init__(self, name: str, symbol: Literal["O"], difficulty: str = "hard"):
+    def __init__(self, name: str, symbol: Literal["O"], difficulty:int=3):
         super().__init__(name, symbol)
-        self.difficulty = difficulty.lower()
+        self.difficulty = difficulty
 
     def get_move(self, board: Board) -> Tuple[int, int]:
-        if self.difficulty == "easy":
+        if self.difficulty == 1:
             return self.random_move(board)
-        elif self.difficulty == "medium":
+        elif self.difficulty == 2:
             return (
                 self.random_move(board)
                 if random.random() < 0.5
