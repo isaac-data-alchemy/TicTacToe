@@ -32,7 +32,7 @@ class Session:
             )
             p2 = Player(
                 input(f"Enter name for Player 2 ({self._symbol.TEXT.O}): "),
-                self._symbol.TEXT.X,
+                self._symbol.TEXT.O,
             )
         elif mode == "2":
             p1 = Player(
